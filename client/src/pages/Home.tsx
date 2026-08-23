@@ -44,9 +44,9 @@ const navItems = [
   ["Home", "home"],
   ["About", "about"],
   ["Education", "education"],
+  ["Projects", "projects"],
   ["Skills", "skills"],
   ["Experience", "experience"],
-  ["Projects", "projects"],
   ["Achievements", "achievements"],
   ["Contact", "contact"],
 ] as const;
@@ -75,7 +75,7 @@ const skillGroups = [
 ];
 
 /**
- * PROJECT DATA — Updated with your new caption for Project 1.
+ * PROJECT DATA
  */
 const projects = [
   {
@@ -263,27 +263,10 @@ export default function Home() {
           </div>
         </section>
 
-        <section className="report-section skills-section" id="skills">
-          <div className="report-layout">
-            <SectionHeading number="03" eyebrow="Capabilities" title="Skills that support the analysis" text="Tools and habits I am actively applying and strengthening; no inflated proficiency scores, just a clear view of my current toolkit." />
-            <div className="skills-grid">{skillGroups.map(({ label, icon: Icon, skills }, index) => <article className="skill-card" key={label} style={{ "--order": index } as React.CSSProperties}><div className="skill-card__head"><span className="skill-card__icon"><Icon size={19} /></span><span>{label}</span></div><ul>{skills.map((skill) => <li key={skill}><CheckCircle2 size={14} />{skill}</li>)}</ul></article>)}</div>
-          </div>
-        </section>
-
-        <section className="report-section experience-section" id="experience">
-          <div className="report-layout">
-            <SectionHeading number="04" eyebrow="Applied learning" title="Experience" text="An honest starting point, with a ready structure for future internships, roles, volunteering, and project-based work." />
-            <div className="experience-track">
-              <div className="experience-track__line" />
-              <article className="experience-card experience-card--current"><div className="experience-card__marker"><Activity size={17} /></div><div className="experience-card__top"><span>NOW</span><span>LEARNING IN PRACTICE</span></div><h3>Currently building my experience</h3><p>As an aspiring Data Analyst, I am continuously developing practical experience through academic projects, personal data analytics work, online learning, and hands-on practice with analytical tools.</p><div className="experience-card__skills"><span>Power BI</span><span>Excel</span><span>SQL</span><span>Data Analysis</span></div></article>
-              <article className="experience-template"><div className="experience-card__marker"><BriefcaseBusiness size={17} /></div><div><p className="card-label">Add an experience when available</p><h3>Future internship, academic, freelance, volunteer, or part-time role</h3><p>This structured card is ready for a role, organization, location, dates, description, responsibilities, skills used, and results—without changing the surrounding design.</p></div><div className="template-fields"><span>Position / Role</span><span>Organization</span><span>Date range</span><span>Key result</span></div></article>
-            </div>
-          </div>
-        </section>
-
+        {/* SECTION 03: PROJECTS */}
         <section className="report-section projects-section" id="projects">
           <div className="report-layout" style={{ display: "block" }}>
-            <SectionHeading number="05" eyebrow="Selected work" title="Featured projects" text="Turning real-world datasets into meaningful insights. Each brief tracks a developing analytical practice and will grow into a published case study with a repository or live dashboard." />
+            <SectionHeading number="03" eyebrow="Selected work" title="Featured projects" text="Turning real-world datasets into meaningful insights. Each brief tracks a developing analytical practice and will grow into a published case study with a repository or live dashboard." />
             <div className="projects-list" style={{ marginTop: "32px", display: "flex", flexDirection: "column", gap: "40px" }}>
               {projects.map((project) => (
                 <article className="project-card" key={project.number} style={{ display: "flex", flexDirection: "row", flexWrap: "wrap", width: "100%", gap: "0" }}>
@@ -318,6 +301,26 @@ export default function Home() {
                   </div>
                 </article>
               ))}
+            </div>
+          </div>
+        </section>
+
+        {/* SECTION 04: SKILLS */}
+        <section className="report-section skills-section" id="skills">
+          <div className="report-layout">
+            <SectionHeading number="04" eyebrow="Capabilities" title="Skills that support the analysis" text="Tools and habits I am actively applying and strengthening; no inflated proficiency scores, just a clear view of my current toolkit." />
+            <div className="skills-grid">{skillGroups.map(({ label, icon: Icon, skills }, index) => <article className="skill-card" key={label} style={{ "--order": index } as React.CSSProperties}><div className="skill-card__head"><span className="skill-card__icon"><Icon size={19} /></span><span>{label}</span></div><ul>{skills.map((skill) => <li key={skill}><CheckCircle2 size={14} />{skill}</li>)}</ul></article>)}</div>
+          </div>
+        </section>
+
+        {/* SECTION 05: EXPERIENCE */}
+        <section className="report-section experience-section" id="experience">
+          <div className="report-layout">
+            <SectionHeading number="05" eyebrow="Applied learning" title="Experience" text="An honest starting point, with a ready structure for future internships, roles, volunteering, and project-based work." />
+            <div className="experience-track">
+              <div className="experience-track__line" />
+              <article className="experience-card experience-card--current"><div className="experience-card__marker"><Activity size={17} /></div><div className="experience-card__top"><span>NOW</span><span>LEARNING IN PRACTICE</span></div><h3>Currently building my experience</h3><p>As an aspiring Data Analyst, I am continuously developing practical experience through academic projects, personal data analytics work, online learning, and hands-on practice with analytical tools.</p><div className="experience-card__skills"><span>Power BI</span><span>Excel</span><span>SQL</span><span>Data Analysis</span></div></article>
+              <article className="experience-template"><div className="experience-card__marker"><BriefcaseBusiness size={17} /></div><div><p className="card-label">Add an experience when available</p><h3>Future internship, academic, freelance, volunteer, or part-time role</h3><p>This structured card is ready for a role, organization, location, dates, description, responsibilities, skills used, and results—without changing the surrounding design.</p></div><div className="template-fields"><span>Position / Role</span><span>Organization</span><span>Date range</span><span>Key result</span></div></article>
             </div>
           </div>
         </section>
