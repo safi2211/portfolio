@@ -6,7 +6,7 @@ import path from "path";
 import { defineConfig } from "vite";
 
 export default defineConfig({
-  base: "./",
+  base: "/portfolio/",
   plugins: [react(), tailwindcss(), jsxLocPlugin()],
   resolve: {
     alias: {
