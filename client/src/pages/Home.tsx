@@ -271,46 +271,45 @@ export default function Home() {
               {projects.map((project) => (
                 <article className="project-card" key={project.number}>
                   
-                  {/* MAIN PROJECT DASHBOARD */}
-                  <div className="project-card__image" style={{ flex: "2", minWidth: "280px" }}>
+                  {/* MAIN PROJECT DASHBOARD (PRIMARY VISUAL) */}
+                  <div className="project-card__image">
                     <img src={project.image} alt={project.title} />
                     <div className="project-card__number">{project.number}</div>
                     
-                    {/* BEGUNI / PURPLE OVERLAY TEXT: BOLDER & LARGER FONT */}
-                    <div className="project-card__data-overlay" style={{ fontSize: "0.85rem", fontWeight: "700", letterSpacing: "1px" }}>
-                      <span style={{ fontSize: "0.85rem", fontWeight: "800" }}>{project.cue}</span>
+                    {/* BEGUNI OVERLAY TEXT */}
+                    <div className="project-card__data-overlay" style={{ fontSize: "0.8rem", fontWeight: "700" }}>
+                      <span>{project.cue}</span>
                       <i />
-                      <span style={{ fontSize: "0.8rem", fontWeight: "700" }}>MS SIGNAL BRIEF</span>
+                      <span>MS SIGNAL BRIEF</span>
                     </div>
                     <span className="project-card__status">DEVELOPING CASE STUDY</span>
                   </div>
 
-                  {/* CONTENT SIDEBAR */}
-                  <div className="project-card__content" style={{ flex: "1", maxWidth: "340px" }}>
+                  {/* CONTENT SIDEBAR (LIMITED WIDTH) */}
+                  <div className="project-card__content" style={{ maxWidth: "340px", flexShrink: 0 }}>
                     <div>
                       <div className="project-card__label">Project {project.number}<ArrowRight size={15} /></div>
                       
-                      {/* RED BOX AREA: TITLE AND CAPTION */}
-                      <h3 style={{ fontSize: "1.3rem", fontWeight: "700", marginBottom: "12px", color: "#0f172a" }}>{project.title}</h3>
-                      <p style={{ whiteSpace: "pre-line", fontSize: "0.9rem", lineHeight: "1.6", color: "#334155", fontWeight: "500" }}>
+                      <h3>{project.title}</h3>
+                      <p style={{ whiteSpace: "pre-line" }}>
                         {project.description}
                       </p>
                       
-                      <div className="project-card__tools" style={{ marginTop: "14px" }}>
+                      <div className="project-card__tools">
                         {project.tools.map((tool) => <span key={tool}>{tool}</span>)}
                       </div>
                     </div>
 
                     <div>
-                      {/* SKY BLUE BOX TEXT: DARK COLOR (#1e293b) FOR CLEAR VISIBILITY */}
-                      <div className="project-card__insight" style={{ marginTop: "16px", backgroundColor: "rgba(0, 180, 216, 0.08)", padding: "12px", borderRadius: "6px" }}>
-                        <span style={{ fontSize: "0.75rem", fontWeight: "800", color: "#0077b6", letterSpacing: "0.5px" }}>CURRENT ANALYTICAL ANGLE</span>
-                        <p style={{ fontSize: "0.85rem", color: "#1e293b", fontWeight: "600", marginTop: "4px", lineHeight: "1.4" }}>
+                      {/* SKY BLUE INSIGHT BOX */}
+                      <div className="project-card__insight" style={{ backgroundColor: "rgba(0, 180, 216, 0.08)" }}>
+                        <span style={{ color: "#0077b6", fontWeight: "700" }}>CURRENT ANALYTICAL ANGLE</span>
+                        <p style={{ color: "#1e293b", fontWeight: "600" }}>
                           {project.insight}
                         </p>
                       </div>
 
-                      <div className="project-card__actions" style={{ marginTop: "16px" }}>
+                      <div className="project-card__actions">
                         {project.githubUrl ? (
                           <a href={project.githubUrl} target="_blank" rel="noreferrer" className="placeholder-action">
                             GitHub repository <ExternalLink size={14} />
