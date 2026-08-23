@@ -239,7 +239,7 @@ export default function Home() {
 
         <section className="report-section about" id="about">
           <div className="report-layout">
-            <SectionHeading number="01" eyebrow="Profile" title="About me" text="A structured path into data analytics—grounded in MIS study, practical tools, and an analytical mindset." />
+            <SectionHeading number="01" eyebrow="Profile" title="About me" text="A structured path into data analytics." />
             <div className="about__body">
               <div className="about__quote"><span>“</span><p>I am building the practice of asking better questions of data—then expressing the answer clearly enough to support a decision.</p></div>
               <div className="about__copy"><p>I am a Management Information Systems student at the <strong>University of Dhaka</strong>, developing a career in data analytics and business intelligence. I am especially interested in dashboard development, data visualization, and the way well-organized information can improve business decision-making.</p><p>As a fresher, I am developing my skills through coursework, practical projects, self-learning, and regular hands-on work with analytical tools. I value clarity, curiosity, and a willingness to investigate before making assumptions.</p></div>
@@ -254,7 +254,7 @@ export default function Home() {
 
         <section className="report-section education-section" id="education">
           <div className="report-layout">
-            <SectionHeading number="02" eyebrow="Academic base" title="Education" text="The academic context behind my technical and business perspective." />
+            <SectionHeading number="02" eyebrow="Academic base" title="Education" text="Academic context and focus areas." />
             <div className="education-card">
               <div className="education-card__stamp"><GraduationCap size={27} /><span>DU</span></div>
               <div className="education-card__content"><p className="card-label">University of Dhaka</p><h3>Bachelor&apos;s Degree in Management Information Systems <span>(MIS)</span></h3><div className="education-card__details"><span><CalendarDays size={15} /> Currently studying</span><span><MapPin size={15} /> Bangladesh</span></div></div>
@@ -263,42 +263,56 @@ export default function Home() {
           </div>
         </section>
 
-        {/* SECTION 03: PROJECTS */}
+        {/* SECTION 03: PROJECTS (UPDATED LAYOUT RATIO) */}
         <section className="report-section projects-section" id="projects">
-          <div className="report-layout" style={{ display: "block" }}>
-            <SectionHeading number="03" eyebrow="Selected work" title="Featured projects" text="Turning real-world datasets into meaningful insights. Each brief tracks a developing analytical practice and will grow into a published case study with a repository or live dashboard." />
-            <div className="projects-list" style={{ marginTop: "32px", display: "flex", flexDirection: "column", gap: "40px" }}>
+          <div className="report-layout">
+            <SectionHeading number="03" eyebrow="Selected work" title="Featured projects" text="Real-world data analytics case studies." />
+            <div className="projects-list" style={{ marginTop: "0", display: "flex", flexDirection: "column", gap: "32px", width: "100%" }}>
               {projects.map((project) => (
                 <article className="project-card" key={project.number} style={{ display: "flex", flexDirection: "row", flexWrap: "wrap", width: "100%", gap: "0" }}>
-                  <div className="project-card__image" style={{ flex: "1.6", minWidth: "320px", minHeight: "380px" }}>
+                  
+                  {/* MAIN PROJECT IMAGE / DASHBOARD (Expanded to cover ~70% space) */}
+                  <div className="project-card__image" style={{ flex: "2.5", minWidth: "320px", minHeight: "380px", position: "relative" }}>
                     <img src={project.image} alt={project.title} style={{ width: "100%", height: "100%", objectFit: "contain", backgroundColor: "#0b1329" }} />
                     <div className="project-card__number">{project.number}</div>
                     <div className="project-card__data-overlay"><span>{project.cue}</span><i /><span>MS SIGNAL BRIEF</span></div>
                     <span className="project-card__status">DEVELOPING CASE STUDY</span>
                   </div>
-                  <div className="project-card__content" style={{ flex: "1", minWidth: "280px", padding: "28px" }}>
-                    <div className="project-card__label">Project {project.number}<ArrowRight size={15} /></div>
-                    <h3>{project.title}</h3>
-                    <p>{project.description}</p>
-                    <div className="project-card__tools">{project.tools.map((tool) => <span key={tool}>{tool}</span>)}</div>
-                    <div className="project-card__insight"><span>CURRENT ANALYTICAL ANGLE</span><p>{project.insight}</p></div>
-                    <div className="project-card__actions">
-                      {project.githubUrl ? (
-                        <a
-                          href={project.githubUrl}
-                          target="_blank"
-                          rel="noreferrer"
-                          className="placeholder-action"
-                          style={{ textDecoration: "none", display: "inline-flex", alignItems: "center", gap: "6px" }}
-                        >
-                          GitHub repository <ExternalLink size={14} />
-                        </a>
-                      ) : (
-                        <PlaceholderAction>GitHub repository</PlaceholderAction>
-                      )}
-                      <PlaceholderAction>{project.number === "03" ? "Project brief" : "Dashboard brief"}</PlaceholderAction>
+
+                  {/* DESCRIPTION BOX (Narrowed & compact to fit left of the red line) */}
+                  <div className="project-card__content" style={{ flex: "1", minWidth: "260px", maxWidth: "330px", padding: "20px 24px", display: "flex", flexDirection: "column", justifyContent: "space-between" }}>
+                    <div>
+                      <div className="project-card__label">Project {project.number}<ArrowRight size={15} /></div>
+                      <h3 style={{ fontSize: "1.35rem", fontWeight: "700", lineHeight: "1.3", marginBottom: "10px" }}>{project.title}</h3>
+                      <p style={{ fontSize: "0.88rem", lineHeight: "1.5", color: "rgba(255, 255, 255, 0.75)" }}>{project.description}</p>
+                      <div className="project-card__tools" style={{ marginTop: "12px", gap: "6px" }}>{project.tools.map((tool) => <span key={tool}>{tool}</span>)}</div>
+                    </div>
+
+                    <div>
+                      <div className="project-card__insight" style={{ marginTop: "16px", padding: "10px 12px" }}>
+                        <span style={{ fontSize: "0.7rem" }}>CURRENT ANALYTICAL ANGLE</span>
+                        <p style={{ fontSize: "0.82rem", lineHeight: "1.4" }}>{project.insight}</p>
+                      </div>
+
+                      <div className="project-card__actions" style={{ marginTop: "16px", display: "flex", flexWrap: "wrap", gap: "8px" }}>
+                        {project.githubUrl ? (
+                          <a
+                            href={project.githubUrl}
+                            target="_blank"
+                            rel="noreferrer"
+                            className="placeholder-action"
+                            style={{ textDecoration: "none", display: "inline-flex", alignItems: "center", gap: "6px", fontSize: "0.82rem" }}
+                          >
+                            GitHub repository <ExternalLink size={13} />
+                          </a>
+                        ) : (
+                          <PlaceholderAction>GitHub repository</PlaceholderAction>
+                        )}
+                        <PlaceholderAction>{project.number === "03" ? "Project brief" : "Dashboard brief"}</PlaceholderAction>
+                      </div>
                     </div>
                   </div>
+
                 </article>
               ))}
             </div>
@@ -308,7 +322,7 @@ export default function Home() {
         {/* SECTION 04: SKILLS */}
         <section className="report-section skills-section" id="skills">
           <div className="report-layout">
-            <SectionHeading number="04" eyebrow="Capabilities" title="Skills that support the analysis" text="Tools and habits I am actively applying and strengthening; no inflated proficiency scores, just a clear view of my current toolkit." />
+            <SectionHeading number="04" eyebrow="Capabilities" title="Skills that support analysis" text="Tools and technical competencies." />
             <div className="skills-grid">{skillGroups.map(({ label, icon: Icon, skills }, index) => <article className="skill-card" key={label} style={{ "--order": index } as React.CSSProperties}><div className="skill-card__head"><span className="skill-card__icon"><Icon size={19} /></span><span>{label}</span></div><ul>{skills.map((skill) => <li key={skill}><CheckCircle2 size={14} />{skill}</li>)}</ul></article>)}</div>
           </div>
         </section>
@@ -316,20 +330,20 @@ export default function Home() {
         {/* SECTION 05: EXPERIENCE */}
         <section className="report-section experience-section" id="experience">
           <div className="report-layout">
-            <SectionHeading number="05" eyebrow="Applied learning" title="Experience" text="Practical operational work and continuous analytical skill building." />
+            <SectionHeading number="05" eyebrow="Applied learning" title="Experience" text="Practical operational work." />
             <div className="experience-track">
               <div className="experience-track__line" />
               
               <article className="experience-card experience-card--current">
                 <div className="experience-card__marker"><BriefcaseBusiness size={17} /></div>
                 <div className="experience-card__top">
-                  <span>MARCH 2019 – JUNE 2020</span>
+                  <span style={{ color: "#0077b6", fontWeight: "bold" }}>MARCH 2019 – JUNE 2020</span>
                   <span>HAZIPARA, CHATTAGRAM</span>
                 </div>
-                <p className="card-label">M.H Enterprise (A Distributor of PepsiCo Ltd)</p>
-                <h3>Stock In-charge</h3>
-                <p>Managed inventory operations and product distribution tracking for a major beverage distributor.</p>
-                <ul style={{ margin: "12px 0", paddingLeft: "18px", color: "rgba(255, 255, 255, 0.8)", fontSize: "0.95rem" }}>
+                <p className="card-label" style={{ fontSize: "1.1rem", fontWeight: "700", color: "#0077b6" }}>M.H ENTERPRISE (A DISTRIBUTOR OF PEPSICO LTD)</p>
+                <h3 style={{ fontSize: "1.8rem", fontWeight: "800", marginTop: "4px" }}>Stock In-charge</h3>
+                <p style={{ marginTop: "6px", fontSize: "0.95rem" }}>Managed inventory operations and product distribution tracking for a major beverage distributor.</p>
+                <ul style={{ margin: "12px 0", paddingLeft: "18px", color: "rgba(255, 255, 255, 0.85)", fontSize: "0.95rem" }}>
                   <li>Maintained accurate inventory levels and stock records.</li>
                   <li>Managed order processing and fulfillment lists efficiently.</li>
                   <li>Handled discount claim reconciliation and operational reporting.</li>
@@ -346,7 +360,7 @@ export default function Home() {
                 <div>
                   <p className="card-label">Add an experience when available</p>
                   <h3>Future internship, academic, freelance, volunteer, or part-time role</h3>
-                  <p>This structured card is ready for a role, organization, location, dates, description, responsibilities, skills used, and results—without changing the surrounding design.</p>
+                  <p>This structured card is ready for a role, organization, location, dates, description, responsibilities, skills used, and results.</p>
                 </div>
                 <div className="template-fields">
                   <span>Position / Role</span>
@@ -365,14 +379,14 @@ export default function Home() {
 
         <section className="report-section process-section" id="process">
           <div className="report-layout">
-            <SectionHeading number="06" eyebrow="Working method" title="My data analytics process" text="A practical sequence for moving from raw information to a meaningful business conversation." />
+            <SectionHeading number="06" eyebrow="Working method" title="My data process" text="Moving from raw data to business decisions." />
             <div className="process-flow">{[["01", "Collect", "Gather relevant data from available sources."], ["02", "Clean", "Remove errors, duplicates, missing values, and inconsistencies."], ["03", "Analyze", "Explore the data and identify trends and patterns."], ["04", "Visualize", "Create dashboards and visualizations to communicate insights."], ["05", "Insights", "Turn analytical findings into meaningful business insights."]].map(([number, title, text], index) => <article key={number} className="process-step"><div className="process-step__top"><span>{number}</span>{index < 4 && <i />}</div><h3>{title}</h3><p>{text}</p></article>)}</div>
           </div>
         </section>
 
         <section className="report-section credentials-section" id="achievements">
           <div className="report-layout">
-            <SectionHeading number="07" eyebrow="Development record" title="Achievements & certifications" text="A considered record of active learning now, reserved for verified certificates, academic results, competitions, and professional milestones as they are earned." />
+            <SectionHeading number="07" eyebrow="Record" title="Achievements" text="Certificates and milestones." />
             <div className="credentials-grid">{credentials.map(([name, provider, year, text], index) => <article className="credential-card" key={`${name}-${index}`}><div className="credential-card__top"><Award size={20} /><span>{String(index + 1).padStart(2, "0")}</span></div><p className="card-label">{provider} · {year}</p><h3>{name}</h3><p>{text}</p><button type="button" onClick={() => toast.info("Development record", { description: "This learning focus will be replaced by a verified certificate or achievement link when the milestone is earned." })}>Roadmap note <ExternalLink size={14} /></button></article>)}</div>
           </div>
         </section>
