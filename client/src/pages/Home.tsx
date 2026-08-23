@@ -269,15 +269,18 @@ export default function Home() {
             <SectionHeading number="03" eyebrow="Selected work" title="Featured projects" text="Real-world data analytics case studies." />
             <div className="projects-list">
               {projects.map((project) => (
-                <article className="project-card" key={project.number}>
-                  
-                  {/* MAIN PROJECT DASHBOARD (PRIMARY VISUAL) */}
-                  <div className="project-card__image">
-                    <img src={project.image} alt={project.title} />
+                <article
+                  className="project-card"
+                  key={project.number}
+                  style={{ display: "flex", width: "100%", overflow: "hidden" }}
+                >
+                  {/* MAIN DASHBOARD IMAGE (TAKES UP MOST OF THE CARD) */}
+                  <div className="project-card__image" style={{ flex: "1 1 auto", width: "auto" }}>
+                    <img src={project.image} alt={project.title} style={{ width: "100%", height: "100%", objectFit: "cover" }} />
                     <div className="project-card__number">{project.number}</div>
                     
-                    {/* BEGUNI OVERLAY TEXT */}
-                    <div className="project-card__data-overlay" style={{ fontSize: "0.8rem", fontWeight: "700" }}>
+                    {/* OVERLAY TEXT */}
+                    <div className="project-card__data-overlay" style={{ fontSize: "0.85rem", fontWeight: "700" }}>
                       <span>{project.cue}</span>
                       <i />
                       <span>MS SIGNAL BRIEF</span>
@@ -285,8 +288,16 @@ export default function Home() {
                     <span className="project-card__status">DEVELOPING CASE STUDY</span>
                   </div>
 
-                  {/* CONTENT SIDEBAR (LIMITED WIDTH) */}
-                  <div className="project-card__content" style={{ maxWidth: "340px", flexShrink: 0 }}>
+                  {/* DESCRIPTION WHITE BOX (STRICTLY LIMITED TO RED LINE) */}
+                  <div
+                    className="project-card__content"
+                    style={{
+                      flex: "0 0 380px",
+                      maxWidth: "380px",
+                      width: "380px",
+                      boxSizing: "border-box",
+                    }}
+                  >
                     <div>
                       <div className="project-card__label">Project {project.number}<ArrowRight size={15} /></div>
                       
@@ -302,9 +313,9 @@ export default function Home() {
 
                     <div>
                       {/* SKY BLUE INSIGHT BOX */}
-                      <div className="project-card__insight" style={{ backgroundColor: "rgba(0, 180, 216, 0.08)" }}>
-                        <span style={{ color: "#0077b6", fontWeight: "700" }}>CURRENT ANALYTICAL ANGLE</span>
-                        <p style={{ color: "#1e293b", fontWeight: "600" }}>
+                      <div className="project-card__insight">
+                        <span>CURRENT ANALYTICAL ANGLE</span>
+                        <p style={{ color: "#0f172a", fontWeight: "600" }}>
                           {project.insight}
                         </p>
                       </div>
