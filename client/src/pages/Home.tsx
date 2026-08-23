@@ -263,7 +263,7 @@ export default function Home() {
           </div>
         </section>
 
-        {/* SECTION 03: PROJECTS (UPDATED LAYOUT RATIO) */}
+        {/* SECTION 03: PROJECTS */}
         <section className="report-section projects-section" id="projects">
           <div className="report-layout">
             <SectionHeading number="03" eyebrow="Selected work" title="Featured projects" text="Real-world data analytics case studies." />
@@ -271,7 +271,7 @@ export default function Home() {
               {projects.map((project) => (
                 <article className="project-card" key={project.number} style={{ display: "flex", flexDirection: "row", flexWrap: "wrap", width: "100%", gap: "0" }}>
                   
-                  {/* MAIN PROJECT IMAGE / DASHBOARD (Expanded to cover ~70% space) */}
+                  {/* MAIN PROJECT IMAGE / DASHBOARD */}
                   <div className="project-card__image" style={{ flex: "2.5", minWidth: "320px", minHeight: "380px", position: "relative" }}>
                     <img src={project.image} alt={project.title} style={{ width: "100%", height: "100%", objectFit: "contain", backgroundColor: "#0b1329" }} />
                     <div className="project-card__number">{project.number}</div>
@@ -279,22 +279,22 @@ export default function Home() {
                     <span className="project-card__status">DEVELOPING CASE STUDY</span>
                   </div>
 
-                  {/* DESCRIPTION BOX (Narrowed & compact to fit left of the red line) */}
+                  {/* DESCRIPTION BOX (Bounded layout matching red boundary) */}
                   <div className="project-card__content" style={{ flex: "1", minWidth: "260px", maxWidth: "330px", padding: "20px 24px", display: "flex", flexDirection: "column", justifyContent: "space-between" }}>
                     <div>
                       <div className="project-card__label">Project {project.number}<ArrowRight size={15} /></div>
-                      <h3 style={{ fontSize: "1.35rem", fontWeight: "700", lineHeight: "1.3", marginBottom: "10px" }}>{project.title}</h3>
-                      <p style={{ fontSize: "0.88rem", lineHeight: "1.5", color: "rgba(255, 255, 255, 0.75)" }}>{project.description}</p>
-                      <div className="project-card__tools" style={{ marginTop: "12px", gap: "6px" }}>{project.tools.map((tool) => <span key={tool}>{tool}</span>)}</div>
+                      <h3 style={{ fontSize: "1.35rem", fontWeight: "700", lineHeight: "1.3", marginBottom: "12px", color: "#ffffff" }}>{project.title}</h3>
+                      <p style={{ fontSize: "0.85rem", lineHeight: "1.5", color: "rgba(255, 255, 255, 0.85)", marginBottom: "12px" }}>{project.description}</p>
+                      <div className="project-card__tools" style={{ marginTop: "8px", gap: "6px" }}>{project.tools.map((tool) => <span key={tool}>{tool}</span>)}</div>
                     </div>
 
                     <div>
-                      <div className="project-card__insight" style={{ marginTop: "16px", padding: "10px 12px" }}>
-                        <span style={{ fontSize: "0.7rem" }}>CURRENT ANALYTICAL ANGLE</span>
-                        <p style={{ fontSize: "0.82rem", lineHeight: "1.4" }}>{project.insight}</p>
+                      <div className="project-card__insight" style={{ marginTop: "14px", padding: "10px 12px" }}>
+                        <span style={{ fontSize: "0.7rem", color: "#00b4d8" }}>CURRENT ANALYTICAL ANGLE</span>
+                        <p style={{ fontSize: "0.8rem", lineHeight: "1.4", color: "rgba(255, 255, 255, 0.85)", marginTop: "4px" }}>{project.insight}</p>
                       </div>
 
-                      <div className="project-card__actions" style={{ marginTop: "16px", display: "flex", flexWrap: "wrap", gap: "8px" }}>
+                      <div className="project-card__actions" style={{ marginTop: "14px", display: "flex", flexWrap: "wrap", gap: "8px" }}>
                         {project.githubUrl ? (
                           <a
                             href={project.githubUrl}
@@ -400,3 +400,4 @@ export default function Home() {
     </div>
   );
 }
+ 
