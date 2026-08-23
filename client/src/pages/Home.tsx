@@ -260,8 +260,8 @@ export default function Home() {
             <div className="projects-list">
               {projects.map((project) => (
                 <article className="project-card" key={project.number}>
-                  <div className="project-card__image">
-                    <img src={project.image} alt={project.title} />
+                  <div className="project-card__image" style={{ display: "flex", alignItems: "center", justifyContent: "center" }}>
+                    <img src={project.image} alt={project.title} style={{ objectFit: "contain", width: "100%", height: "100%" }} />
                     <div className="project-card__number">{project.number}</div>
                     <div className="project-card__data-overlay">
                       <span>{project.cue}</span>
