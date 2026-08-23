@@ -246,7 +246,7 @@ export default function Home() {
               <dl className="profile-grid">
                 <div><dt>Role</dt><dd>Aspiring Data Analyst</dd></div><div><dt>Education</dt><dd>Management Information Systems</dd></div>
                 <div><dt>University</dt><dd>University of Dhaka</dd></div><div><dt>Location</dt><dd>Bangladesh</dd></div>
-                <div><dt>Focus</dt><dd>Analytics & Business Intelligence</dd></div><div><dt>Experience</dt><dd>Fresher</dd></div>
+                <div><dt>Focus</dt><dd>Analytics & Business Intelligence</dd></div><div><dt>Experience</dt><dd>Stock & Inventory Operations</dd></div>
               </dl>
             </div>
           </div>
@@ -316,11 +316,45 @@ export default function Home() {
         {/* SECTION 05: EXPERIENCE */}
         <section className="report-section experience-section" id="experience">
           <div className="report-layout">
-            <SectionHeading number="05" eyebrow="Applied learning" title="Experience" text="An honest starting point, with a ready structure for future internships, roles, volunteering, and project-based work." />
+            <SectionHeading number="05" eyebrow="Applied learning" title="Experience" text="Practical operational work and continuous analytical skill building." />
             <div className="experience-track">
               <div className="experience-track__line" />
-              <article className="experience-card experience-card--current"><div className="experience-card__marker"><Activity size={17} /></div><div className="experience-card__top"><span>NOW</span><span>LEARNING IN PRACTICE</span></div><h3>Currently building my experience</h3><p>As an aspiring Data Analyst, I am continuously developing practical experience through academic projects, personal data analytics work, online learning, and hands-on practice with analytical tools.</p><div className="experience-card__skills"><span>Power BI</span><span>Excel</span><span>SQL</span><span>Data Analysis</span></div></article>
-              <article className="experience-template"><div className="experience-card__marker"><BriefcaseBusiness size={17} /></div><div><p className="card-label">Add an experience when available</p><h3>Future internship, academic, freelance, volunteer, or part-time role</h3><p>This structured card is ready for a role, organization, location, dates, description, responsibilities, skills used, and results—without changing the surrounding design.</p></div><div className="template-fields"><span>Position / Role</span><span>Organization</span><span>Date range</span><span>Key result</span></div></article>
+              
+              <article className="experience-card experience-card--current">
+                <div className="experience-card__marker"><BriefcaseBusiness size={17} /></div>
+                <div className="experience-card__top">
+                  <span>MARCH 2019 – JUNE 2020</span>
+                  <span>HAZIPARA, CHATTAGRAM</span>
+                </div>
+                <p className="card-label">M.H Enterprise (A Distributor of PepsiCo Ltd)</p>
+                <h3>Stock In-charge</h3>
+                <p>Managed inventory operations and product distribution tracking for a major beverage distributor.</p>
+                <ul style={{ margin: "12px 0", paddingLeft: "18px", color: "rgba(255, 255, 255, 0.8)", fontSize: "0.95rem" }}>
+                  <li>Maintained accurate inventory levels and stock records.</li>
+                  <li>Managed order processing and fulfillment lists efficiently.</li>
+                  <li>Handled discount claim reconciliation and operational reporting.</li>
+                </ul>
+                <div className="experience-card__skills">
+                  <span>Excel</span>
+                  <span>PowerPoint</span>
+                  <span>Basic Accounting</span>
+                </div>
+              </article>
+
+              <article className="experience-template">
+                <div className="experience-card__marker"><Activity size={17} /></div>
+                <div>
+                  <p className="card-label">Add an experience when available</p>
+                  <h3>Future internship, academic, freelance, volunteer, or part-time role</h3>
+                  <p>This structured card is ready for a role, organization, location, dates, description, responsibilities, skills used, and results—without changing the surrounding design.</p>
+                </div>
+                <div className="template-fields">
+                  <span>Position / Role</span>
+                  <span>Organization</span>
+                  <span>Date range</span>
+                  <span>Key result</span>
+                </div>
+              </article>
             </div>
           </div>
         </section>
