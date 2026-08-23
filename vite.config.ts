@@ -1,23 +1,22 @@
-// Static-only Vite configuration for the Signal & Structure GitHub Pages portfolio.
+// Static-only Vite configuration for GitHub Pages portfolio
 import { jsxLocPlugin } from "@builder.io/vite-plugin-jsx-loc";
 import tailwindcss from "@tailwindcss/vite";
 import react from "@vitejs/plugin-react";
-import path from "node:path";
+import path from "path";
 import { defineConfig } from "vite";
 
 export default defineConfig({
-  // Relative asset paths make the build work both at username.github.io and /repository-name/.
   base: "./",
   plugins: [react(), tailwindcss(), jsxLocPlugin()],
   resolve: {
     alias: {
-      "@": path.resolve(import.meta.dirname, "client", "src"),
-      "@shared": path.resolve(import.meta.dirname, "shared"),
+      "@": path.resolve(__dirname, "client", "src"),
+      "@shared": path.resolve(__dirname, "shared"),
     },
   },
-  root: path.resolve(import.meta.dirname, "client"),
+  root: path.resolve(__dirname, "client"),
   build: {
-    outDir: path.resolve(import.meta.dirname, "dist"),
+    outDir: path.resolve(__dirname, "dist"),
     emptyOutDir: true,
   },
   server: { port: 3000, strictPort: false, host: true },
