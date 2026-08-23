@@ -83,12 +83,12 @@ const projects = [
     number: "01",
     title: "Sales Performance Analysis Dashboard",
     description:
-      "A developing interactive dashboard practice that examines sales performance, regional patterns, customer segments, products, revenue, and profitability.",
-    tools: ["Power BI", "Excel", "Power Query"],
-    insight: "This case study will surface one concise, evidence-based finding as the analysis is published.",
+      "An interactive Power BI dashboard featuring category, country, and region-level sales analytics with dynamic filters and performance metrics.",
+    tools: ["Power BI", "Excel", "DAX"],
+    insight: "Combines regional trends, category breakdown, and profitability across customer segments into a unified interactive canvas.",
     cue: "REVENUE · REGION · MARGIN",
-    image: "https://files.manuscdn.com/user_upload_by_module/session_file/310519663908287859/vAvzsqejHzSXKObH.png",
-    githubUrl: null,
+    image: "./Dashboard-demo.gif",
+    githubUrl: "https://github.com/safi2211/power-bi-sales-dashboard",
     liveUrl: null,
   },
   {
