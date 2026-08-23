@@ -82,7 +82,7 @@ const projects = [
     number: "01",
     title: "Sales Performance Analysis Dashboard",
     description:
-      "My First Power BI Dashboard 📊 Excited to share my first Power BI dashboard as I begin my journey into Data Analytics and Business Intelligence. In this project, I transformed sales data into interactive visualizations and explored performance across countries, regions, segments, and products.",
+      "My First Power BI Dashboard 📊\n\nExcited to share my first Power BI dashboard as I begin my journey into Data Analytics and Business Intelligence.\n\nIn this project, I transformed sales data into interactive visualizations and explored performance across countries, regions, segments, and products.",
     tools: ["Power BI", "Excel", "DAX"],
     insight: "Combines regional trends, category breakdown, and profitability across customer segments into a unified interactive canvas.",
     cue: "REVENUE · REGION · MARGIN",
@@ -226,7 +226,7 @@ export default function Home() {
             </div>
             <div className="hero__meta">
               <div className="hero__badges"><span>Power BI</span><span>Excel</span><span>SQL</span><span>Python</span><span>Data Visualization</span></div>
-              <SocialLinks light />
+              SocialLinks light />
             </div>
           </div>
           <div className="hero__dash" aria-hidden="true">
@@ -267,43 +267,53 @@ export default function Home() {
         <section className="report-section projects-section" id="projects">
           <div className="report-layout">
             <SectionHeading number="03" eyebrow="Selected work" title="Featured projects" text="Real-world data analytics case studies." />
-            <div className="projects-list" style={{ marginTop: "0", display: "flex", flexDirection: "column", gap: "32px", width: "100%" }}>
+            <div className="projects-list">
               {projects.map((project) => (
-                <article className="project-card" key={project.number} style={{ display: "flex", flexDirection: "row", flexWrap: "wrap", width: "100%", gap: "0" }}>
+                <article className="project-card" key={project.number}>
                   
-                  {/* MAIN PROJECT IMAGE / DASHBOARD */}
-                  <div className="project-card__image" style={{ flex: "2.5", minWidth: "320px", minHeight: "380px", position: "relative" }}>
-                    <img src={project.image} alt={project.title} style={{ width: "100%", height: "100%", objectFit: "contain", backgroundColor: "#0b1329" }} />
+                  {/* MAIN PROJECT DASHBOARD */}
+                  <div className="project-card__image" style={{ flex: "2", minWidth: "280px" }}>
+                    <img src={project.image} alt={project.title} />
                     <div className="project-card__number">{project.number}</div>
-                    <div className="project-card__data-overlay"><span>{project.cue}</span><i /><span>MS SIGNAL BRIEF</span></div>
+                    
+                    {/* 1. BEGUNI / PURPLE OVERLAY TEXT: BOLDER & LARGER FONT */}
+                    <div className="project-card__data-overlay" style={{ fontSize: "0.85rem", fontWeight: "700", letterSpacing: "1px" }}>
+                      <span style={{ fontSize: "0.85rem", fontWeight: "800" }}>{project.cue}</span>
+                      <i />
+                      <span style={{ fontSize: "0.8rem", fontWeight: "700" }}>MS SIGNAL BRIEF</span>
+                    </div>
                     <span className="project-card__status">DEVELOPING CASE STUDY</span>
                   </div>
 
-                  {/* DESCRIPTION BOX (Bounded layout matching red boundary) */}
-                  <div className="project-card__content" style={{ flex: "1", minWidth: "260px", maxWidth: "330px", padding: "20px 24px", display: "flex", flexDirection: "column", justifyContent: "space-between" }}>
+                  {/* CONTENT SIDEBAR */}
+                  <div className="project-card__content" style={{ flex: "1", maxWidth: "340px" }}>
                     <div>
                       <div className="project-card__label">Project {project.number}<ArrowRight size={15} /></div>
-                      <h3 style={{ fontSize: "1.35rem", fontWeight: "700", lineHeight: "1.3", marginBottom: "12px", color: "#ffffff" }}>{project.title}</h3>
-                      <p style={{ fontSize: "0.85rem", lineHeight: "1.5", color: "rgba(255, 255, 255, 0.85)", marginBottom: "12px" }}>{project.description}</p>
-                      <div className="project-card__tools" style={{ marginTop: "8px", gap: "6px" }}>{project.tools.map((tool) => <span key={tool}>{tool}</span>)}</div>
+                      
+                      {/* 2. RED BOX AREA: TITLE AND CAPTION */}
+                      <h3 style={{ fontSize: "1.3rem", fontWeight: "700", marginBottom: "12px", color: "#0f172a" }}>{project.title}</h3>
+                      <p style={{ whiteSpace: "pre-line", fontSize: "0.9rem", lineHeight: "1.6", color: "#334155", fontWeight: "500" }}>
+                        {project.description}
+                      </p>
+                      
+                      <div className="project-card__tools" style={{ marginTop: "14px" }}>
+                        {project.tools.map((tool) => <span key={tool}>{tool}</span>)}
+                      </div>
                     </div>
 
                     <div>
-                      <div className="project-card__insight" style={{ marginTop: "14px", padding: "10px 12px" }}>
-                        <span style={{ fontSize: "0.7rem", color: "#00b4d8" }}>CURRENT ANALYTICAL ANGLE</span>
-                        <p style={{ fontSize: "0.8rem", lineHeight: "1.4", color: "rgba(255, 255, 255, 0.85)", marginTop: "4px" }}>{project.insight}</p>
+                      {/* 3. SKY BLUE BOX TEXT: DARK COLOR (#1e293b) FOR CLEAR VISIBILITY */}
+                      <div className="project-card__insight" style={{ marginTop: "16px", backgroundColor: "rgba(0, 180, 216, 0.08)", padding: "12px", borderRadius: "6px" }}>
+                        <span style={{ fontSize: "0.75rem", fontWeight: "800", color: "#0077b6", letterSpacing: "0.5px" }}>CURRENT ANALYTICAL ANGLE</span>
+                        <p style={{ fontSize: "0.85rem", color: "#1e293b", fontWeight: "600", marginTop: "4px", lineHeight: "1.4" }}>
+                          {project.insight}
+                        </p>
                       </div>
 
-                      <div className="project-card__actions" style={{ marginTop: "14px", display: "flex", flexWrap: "wrap", gap: "8px" }}>
+                      <div className="project-card__actions" style={{ marginTop: "16px" }}>
                         {project.githubUrl ? (
-                          <a
-                            href={project.githubUrl}
-                            target="_blank"
-                            rel="noreferrer"
-                            className="placeholder-action"
-                            style={{ textDecoration: "none", display: "inline-flex", alignItems: "center", gap: "6px", fontSize: "0.82rem" }}
-                          >
-                            GitHub repository <ExternalLink size={13} />
+                          <a href={project.githubUrl} target="_blank" rel="noreferrer" className="placeholder-action">
+                            GitHub repository <ExternalLink size={14} />
                           </a>
                         ) : (
                           <PlaceholderAction>GitHub repository</PlaceholderAction>
@@ -337,13 +347,13 @@ export default function Home() {
               <article className="experience-card experience-card--current">
                 <div className="experience-card__marker"><BriefcaseBusiness size={17} /></div>
                 <div className="experience-card__top">
-                  <span style={{ color: "#0077b6", fontWeight: "bold" }}>MARCH 2019 – JUNE 2020</span>
+                  <span>MARCH 2019 – JUNE 2020</span>
                   <span>HAZIPARA, CHATTAGRAM</span>
                 </div>
-                <p className="card-label" style={{ fontSize: "1.1rem", fontWeight: "700", color: "#0077b6" }}>M.H ENTERPRISE (A DISTRIBUTOR OF PEPSICO LTD)</p>
-                <h3 style={{ fontSize: "1.8rem", fontWeight: "800", marginTop: "4px" }}>Stock In-charge</h3>
-                <p style={{ marginTop: "6px", fontSize: "0.95rem" }}>Managed inventory operations and product distribution tracking for a major beverage distributor.</p>
-                <ul style={{ margin: "12px 0", paddingLeft: "18px", color: "rgba(255, 255, 255, 0.85)", fontSize: "0.95rem" }}>
+                <p className="card-label">M.H ENTERPRISE (A DISTRIBUTOR OF PEPSICO LTD)</p>
+                <h3>Stock In-charge</h3>
+                <p>Managed inventory operations and product distribution tracking for a major beverage distributor.</p>
+                <ul>
                   <li>Maintained accurate inventory levels and stock records.</li>
                   <li>Managed order processing and fulfillment lists efficiently.</li>
                   <li>Handled discount claim reconciliation and operational reporting.</li>
@@ -400,4 +410,3 @@ export default function Home() {
     </div>
   );
 }
- 
