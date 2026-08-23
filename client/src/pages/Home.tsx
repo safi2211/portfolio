@@ -76,7 +76,6 @@ const skillGroups = [
 
 /**
  * PROJECT DATA — Replace placeholder text, URLs, images, and insights here as new work is completed.
- * A null URL creates a clearly labelled button rather than a broken link.
  */
 const projects = [
   {
@@ -117,7 +116,7 @@ const projects = [
   },
 ];
 
-/** DEVELOPMENT RECORD — Replace any learning focus with a verified certificate or achievement once earned. */
+/** DEVELOPMENT RECORD */
 const credentials = [
   ["Power BI dashboard practice", "Current learning focus", "In progress", "Hands-on work with dashboards, KPIs, and clear visual reporting—building toward a verified milestone."],
   ["SQL & data querying practice", "Current learning focus", "In progress", "Developing a reliable approach to retrieving, organizing, and interpreting structured data."],
@@ -285,7 +284,41 @@ export default function Home() {
         <section className="report-section projects-section" id="projects">
           <div className="report-layout">
             <SectionHeading number="05" eyebrow="Selected work" title="Featured projects" text="Turning real-world datasets into meaningful insights. Each brief tracks a developing analytical practice and will grow into a published case study with a repository or live dashboard." />
-            <div className="projects-list">{projects.map((project) => <article className="project-card" key={project.number}><div className="project-card__image"><img src={project.image} alt="Abstract data visual for a developing analytics case study" /><div className="project-card__number">{project.number}</div><div className="project-card__data-overlay"><span>{project.cue}</span><i /><span>MS SIGNAL BRIEF</span></div><span className="project-card__status">DEVELOPING CASE STUDY</span></div><div className="project-card__content"><div className="project-card__label">Project {project.number}<ArrowRight size={15} /></div><h3>{project.title}</h3><p>{project.description}</p><div className="project-card__tools">{project.tools.map((tool) => <span key={tool}>{tool}</span>)}</div><div className="project-card__insight"><span>CURRENT ANALYTICAL ANGLE</span><p>{project.insight}</p></div><div className="project-card__actions"><PlaceholderAction>GitHub repository</PlaceholderAction><PlaceholderAction>{project.number === "03" ? "Project brief" : "Dashboard brief"}</PlaceholderAction></div></div></article>)}</div>
+            <div className="projects-list">
+              {projects.map((project) => (
+                <article className="project-card" key={project.number} style={{ display: "flex", flexWrap: "wrap", alignItems: "stretch" }}>
+                  <div className="project-card__image" style={{ flex: "1.6", minWidth: "320px", minHeight: "380px" }}>
+                    <img src={project.image} alt={project.title} style={{ width: "100%", height: "100%", objectFit: "contain", backgroundColor: "#0b1329" }} />
+                    <div className="project-card__number">{project.number}</div>
+                    <div className="project-card__data-overlay"><span>{project.cue}</span><i /><span>MS SIGNAL BRIEF</span></div>
+                    <span className="project-card__status">DEVELOPING CASE STUDY</span>
+                  </div>
+                  <div className="project-card__content" style={{ flex: "1", minWidth: "280px", padding: "24px" }}>
+                    <div className="project-card__label">Project {project.number}<ArrowRight size={15} /></div>
+                    <h3>{project.title}</h3>
+                    <p>{project.description}</p>
+                    <div className="project-card__tools">{project.tools.map((tool) => <span key={tool}>{tool}</span>)}</div>
+                    <div className="project-card__insight"><span>CURRENT ANALYTICAL ANGLE</span><p>{project.insight}</p></div>
+                    <div className="project-card__actions">
+                      {project.githubUrl ? (
+                        <a
+                          href={project.githubUrl}
+                          target="_blank"
+                          rel="noreferrer"
+                          className="placeholder-action"
+                          style={{ textDecoration: "none", display: "inline-flex", alignItems: "center", gap: "6px" }}
+                        >
+                          GitHub repository <ExternalLink size={14} />
+                        </a>
+                      ) : (
+                        <PlaceholderAction>GitHub repository</PlaceholderAction>
+                      )}
+                      <PlaceholderAction>{project.number === "03" ? "Project brief" : "Dashboard brief"}</PlaceholderAction>
+                    </div>
+                  </div>
+                </article>
+              ))}
+            </div>
           </div>
         </section>
 
