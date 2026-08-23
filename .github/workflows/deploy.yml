@@ -26,8 +26,7 @@ jobs:
 
       - name: Set up pnpm
         uses: pnpm/action-setup@v4
-        with:
-          version: 10
+        # package.json এর ভার্সনটি স্বয়ংক্রিয়ভাবে ব্যবহার করতে specific version তুলে দেওয়া হয়েছে
 
       - name: Set up Node
         uses: actions/setup-node@v4
