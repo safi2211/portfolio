@@ -226,7 +226,7 @@ export default function Home() {
             </div>
             <div className="hero__meta">
               <div className="hero__badges"><span>Power BI</span><span>Excel</span><span>SQL</span><span>Python</span><span>Data Visualization</span></div>
-              SocialLinks light />
+              <SocialLinks light />
             </div>
           </div>
           <div className="hero__dash" aria-hidden="true">
@@ -276,7 +276,7 @@ export default function Home() {
                     <img src={project.image} alt={project.title} />
                     <div className="project-card__number">{project.number}</div>
                     
-                    {/* 1. BEGUNI / PURPLE OVERLAY TEXT: BOLDER & LARGER FONT */}
+                    {/* BEGUNI / PURPLE OVERLAY TEXT: BOLDER & LARGER FONT */}
                     <div className="project-card__data-overlay" style={{ fontSize: "0.85rem", fontWeight: "700", letterSpacing: "1px" }}>
                       <span style={{ fontSize: "0.85rem", fontWeight: "800" }}>{project.cue}</span>
                       <i />
@@ -290,7 +290,7 @@ export default function Home() {
                     <div>
                       <div className="project-card__label">Project {project.number}<ArrowRight size={15} /></div>
                       
-                      {/* 2. RED BOX AREA: TITLE AND CAPTION */}
+                      {/* RED BOX AREA: TITLE AND CAPTION */}
                       <h3 style={{ fontSize: "1.3rem", fontWeight: "700", marginBottom: "12px", color: "#0f172a" }}>{project.title}</h3>
                       <p style={{ whiteSpace: "pre-line", fontSize: "0.9rem", lineHeight: "1.6", color: "#334155", fontWeight: "500" }}>
                         {project.description}
@@ -302,7 +302,7 @@ export default function Home() {
                     </div>
 
                     <div>
-                      {/* 3. SKY BLUE BOX TEXT: DARK COLOR (#1e293b) FOR CLEAR VISIBILITY */}
+                      {/* SKY BLUE BOX TEXT: DARK COLOR (#1e293b) FOR CLEAR VISIBILITY */}
                       <div className="project-card__insight" style={{ marginTop: "16px", backgroundColor: "rgba(0, 180, 216, 0.08)", padding: "12px", borderRadius: "6px" }}>
                         <span style={{ fontSize: "0.75rem", fontWeight: "800", color: "#0077b6", letterSpacing: "0.5px" }}>CURRENT ANALYTICAL ANGLE</span>
                         <p style={{ fontSize: "0.85rem", color: "#1e293b", fontWeight: "600", marginTop: "4px", lineHeight: "1.4" }}>
