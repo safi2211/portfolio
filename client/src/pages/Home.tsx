@@ -75,14 +75,14 @@ const skillGroups = [
 ];
 
 /**
- * PROJECT DATA — Replace placeholder text, URLs, images, and insights here as new work is completed.
+ * PROJECT DATA — Updated with your new caption for Project 1.
  */
 const projects = [
   {
     number: "01",
     title: "Sales Performance Analysis Dashboard",
     description:
-      "An interactive Power BI dashboard featuring category, country, and region-level sales analytics with dynamic filters and performance metrics.",
+      "My First Power BI Dashboard 📊 Excited to share my first Power BI dashboard as I begin my journey into Data Analytics and Business Intelligence. In this project, I transformed sales data into interactive visualizations and explored performance across countries, regions, segments, and products.",
     tools: ["Power BI", "Excel", "DAX"],
     insight: "Combines regional trends, category breakdown, and profitability across customer segments into a unified interactive canvas.",
     cue: "REVENUE · REGION · MARGIN",
@@ -282,18 +282,18 @@ export default function Home() {
         </section>
 
         <section className="report-section projects-section" id="projects">
-          <div className="report-layout">
+          <div className="report-layout" style={{ display: "block" }}>
             <SectionHeading number="05" eyebrow="Selected work" title="Featured projects" text="Turning real-world datasets into meaningful insights. Each brief tracks a developing analytical practice and will grow into a published case study with a repository or live dashboard." />
-            <div className="projects-list">
+            <div className="projects-list" style={{ marginTop: "32px", display: "flex", flexDirection: "column", gap: "40px" }}>
               {projects.map((project) => (
-                <article className="project-card" key={project.number} style={{ display: "flex", flexWrap: "wrap", alignItems: "stretch" }}>
+                <article className="project-card" key={project.number} style={{ display: "flex", flexDirection: "row", flexWrap: "wrap", width: "100%", gap: "0" }}>
                   <div className="project-card__image" style={{ flex: "1.6", minWidth: "320px", minHeight: "380px" }}>
                     <img src={project.image} alt={project.title} style={{ width: "100%", height: "100%", objectFit: "contain", backgroundColor: "#0b1329" }} />
                     <div className="project-card__number">{project.number}</div>
                     <div className="project-card__data-overlay"><span>{project.cue}</span><i /><span>MS SIGNAL BRIEF</span></div>
                     <span className="project-card__status">DEVELOPING CASE STUDY</span>
                   </div>
-                  <div className="project-card__content" style={{ flex: "1", minWidth: "280px", padding: "24px" }}>
+                  <div className="project-card__content" style={{ flex: "1", minWidth: "280px", padding: "28px" }}>
                     <div className="project-card__label">Project {project.number}<ArrowRight size={15} /></div>
                     <h3>{project.title}</h3>
                     <p>{project.description}</p>
