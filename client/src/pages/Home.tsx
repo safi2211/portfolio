@@ -1,14 +1,9 @@
-/**
- * Signal & Structure design: a recruiter-friendly report narrative with evidence-led content,
- * deep ink hero fields, warm report surfaces, and rare Signal Cyan data accents.
- */
 import { useEffect, useState } from "react";
 import {
   Activity,
   ArrowRight,
   Award,
   BarChart3,
-  BookOpen,
   Braces,
   BriefcaseBusiness,
   CalendarDays,
@@ -74,9 +69,6 @@ const skillGroups = [
   },
 ];
 
-/**
- * PROJECT DATA
- */
 const projects = [
   {
     number: "01",
@@ -116,7 +108,6 @@ const projects = [
   },
 ];
 
-/** DEVELOPMENT RECORD */
 const credentials = [
   ["Power BI dashboard practice", "Current learning focus", "In progress", "Hands-on work with dashboards, KPIs, and clear visual reporting—building toward a verified milestone."],
   ["SQL & data querying practice", "Current learning focus", "In progress", "Developing a reliable approach to retrieving, organizing, and interpreting structured data."],
@@ -263,24 +254,16 @@ export default function Home() {
           </div>
         </section>
 
-        {/* SECTION 03: PROJECTS */}
         <section className="report-section projects-section" id="projects">
           <div className="report-layout">
             <SectionHeading number="03" eyebrow="Selected work" title="Featured projects" text="Real-world data analytics case studies." />
             <div className="projects-list">
               {projects.map((project) => (
-                <article
-                  className="project-card"
-                  key={project.number}
-                  style={{ display: "flex", width: "100%", overflow: "hidden" }}
-                >
-                  {/* MAIN DASHBOARD IMAGE (TAKES UP MOST OF THE CARD) */}
-                  <div className="project-card__image" style={{ flex: "1 1 auto", width: "auto" }}>
-                    <img src={project.image} alt={project.title} style={{ width: "100%", height: "100%", objectFit: "cover" }} />
+                <article className="project-card" key={project.number}>
+                  <div className="project-card__image">
+                    <img src={project.image} alt={project.title} />
                     <div className="project-card__number">{project.number}</div>
-                    
-                    {/* OVERLAY TEXT */}
-                    <div className="project-card__data-overlay" style={{ fontSize: "0.85rem", fontWeight: "700" }}>
+                    <div className="project-card__data-overlay">
                       <span>{project.cue}</span>
                       <i />
                       <span>MS SIGNAL BRIEF</span>
@@ -288,36 +271,22 @@ export default function Home() {
                     <span className="project-card__status">DEVELOPING CASE STUDY</span>
                   </div>
 
-                  {/* DESCRIPTION WHITE BOX (STRICTLY LIMITED TO RED LINE) */}
-                  <div
-                    className="project-card__content"
-                    style={{
-                      flex: "0 0 380px",
-                      maxWidth: "380px",
-                      width: "380px",
-                      boxSizing: "border-box",
-                    }}
-                  >
+                  <div className="project-card__content">
                     <div>
                       <div className="project-card__label">Project {project.number}<ArrowRight size={15} /></div>
-                      
                       <h3>{project.title}</h3>
                       <p style={{ whiteSpace: "pre-line" }}>
                         {project.description}
                       </p>
-                      
                       <div className="project-card__tools">
                         {project.tools.map((tool) => <span key={tool}>{tool}</span>)}
                       </div>
                     </div>
 
                     <div>
-                      {/* SKY BLUE INSIGHT BOX */}
                       <div className="project-card__insight">
                         <span>CURRENT ANALYTICAL ANGLE</span>
-                        <p style={{ color: "#0f172a", fontWeight: "600" }}>
-                          {project.insight}
-                        </p>
+                        <p>{project.insight}</p>
                       </div>
 
                       <div className="project-card__actions">
@@ -332,14 +301,12 @@ export default function Home() {
                       </div>
                     </div>
                   </div>
-
                 </article>
               ))}
             </div>
           </div>
         </section>
 
-        {/* SECTION 04: SKILLS */}
         <section className="report-section skills-section" id="skills">
           <div className="report-layout">
             <SectionHeading number="04" eyebrow="Capabilities" title="Skills that support analysis" text="Tools and technical competencies." />
@@ -347,13 +314,11 @@ export default function Home() {
           </div>
         </section>
 
-        {/* SECTION 05: EXPERIENCE */}
         <section className="report-section experience-section" id="experience">
           <div className="report-layout">
             <SectionHeading number="05" eyebrow="Applied learning" title="Experience" text="Practical operational work." />
             <div className="experience-track">
               <div className="experience-track__line" />
-              
               <article className="experience-card experience-card--current">
                 <div className="experience-card__marker"><BriefcaseBusiness size={17} /></div>
                 <div className="experience-card__top">
