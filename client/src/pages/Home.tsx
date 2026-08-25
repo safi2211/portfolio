@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+mport { useEffect, useState } from "react";
 import {
   Activity,
   ArrowRight,
@@ -109,9 +109,31 @@ const projects = [
 ];
 
 const credentials = [
-  ["Power BI dashboard practice", "Current learning focus", "In progress", "Hands-on work with dashboards, KPIs, and clear visual reporting—building toward a verified milestone."],
-  ["SQL & data querying practice", "Current learning focus", "In progress", "Developing a reliable approach to retrieving, organizing, and interpreting structured data."],
-  ["Python analysis practice", "Current learning focus", "In progress", "Strengthening the workflow from data preparation through exploratory analysis and visual explanation."],
+  {
+    name: "Power BI dashboard practice",
+    provider: "Mind Luster",
+    year: "Verified · Aug 2026",
+    text:
+      "I'm happy to share that I have successfully completed the \"What Is Power BI\" course from Mind Luster. 📊🎓\n\n⏱️ I spent 13 hours completing this course and building my foundational knowledge of Power BI, data analysis, and data visualization.",
+    image: "./power-Bi.jpg",
+    verified: true,
+  },
+  {
+    name: "SQL & data querying practice",
+    provider: "Current learning focus",
+    year: "In progress",
+    text: "Developing a reliable approach to retrieving, organizing, and interpreting structured data.",
+    image: null,
+    verified: false,
+  },
+  {
+    name: "Python analysis practice",
+    provider: "Current learning focus",
+    year: "In progress",
+    text: "Strengthening the workflow from data preparation through exploratory analysis and visual explanation.",
+    image: null,
+    verified: false,
+  },
 ] as const;
 
 const toolbox = [
@@ -372,7 +394,30 @@ export default function Home() {
         <section className="report-section credentials-section" id="achievements">
           <div className="report-layout">
             <SectionHeading number="07" eyebrow="Record" title="Achievements" text="Certificates and milestones." />
-            <div className="credentials-grid">{credentials.map(([name, provider, year, text], index) => <article className="credential-card" key={`${name}-${index}`}><div className="credential-card__top"><Award size={20} /><span>{String(index + 1).padStart(2, "0")}</span></div><p className="card-label">{provider} · {year}</p><h3>{name}</h3><p>{text}</p><button type="button" onClick={() => toast.info("Development record", { description: "This learning focus will be replaced by a verified certificate or achievement link when the milestone is earned." })}>Roadmap note <ExternalLink size={14} /></button></article>)}</div>
+            <div className="credentials-grid">
+              {credentials.map((credential, index) => (
+                <article className="credential-card" key={`${credential.name}-${index}`}>
+                  <div className="credential-card__top"><Award size={20} /><span>{String(index + 1).padStart(2, "0")}</span></div>
+                  <p className="card-label">{credential.provider} · {credential.year}</p>
+                  <h3>{credential.name}</h3>
+                  {credential.image && (
+                    <img
+                      src={credential.image}
+                      alt={`${credential.name} certificate`}
+                      style={{ width: "100%", borderRadius: "10px", margin: "12px 0", display: "block" }}
+                    />
+                  )}
+                  <p style={{ whiteSpace: "pre-line" }}>{credential.text}</p>
+                  {credential.verified ? (
+                    <a href={credential.image ?? "#"} target="_blank" rel="noreferrer" className="placeholder-action">
+                      View certificate <ExternalLink size={14} />
+                    </a>
+                  ) : (
+                    <button type="button" onClick={() => toast.info("Development record", { description: "This learning focus will be replaced by a verified certificate or achievement link when the milestone is earned." })}>Roadmap note <ExternalLink size={14} /></button>
+                  )}
+                </article>
+              ))}
+            </div>
           </div>
         </section>
 
