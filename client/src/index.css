@@ -164,14 +164,14 @@ h1, h2, h3, p { margin-top: 0; }.hero h1 { max-width: 610px; margin: 21px 0 16px
 .project-card__image img { 
   width: 100% !important; 
   height: 100% !important; 
-  object-fit: cover !important; 
-  object-position: top center !important; 
-  transform: scale(0.9) !important;
+  object-fit: contain !important; 
+  object-position: center !important; 
+  transform: scale(1) !important;
   transition: transform .35s cubic-bezier(.23,1,.32,1); 
 }
 
 .project-card:hover .project-card__image img { 
-  transform: scale(0.94) !important; 
+  transform: scale(1.03) !important; 
 }
 
 .project-card__number { position: absolute; z-index: 2; top: 17px; left: 18px; color: #e6ffff; font-family: "DM Serif Display", Georgia, serif; font-size: 34px; text-shadow: 0 2px 4px rgba(0,0,0,0.5); }
