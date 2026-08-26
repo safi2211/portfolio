@@ -224,7 +224,7 @@ h1, h2, h3, p { margin-top: 0; }.hero h1 { max-width: 610px; margin: 21px 0 16px
 .credential-card__top { display: flex; align-items: center; justify-content: space-between; color: #0a7f91; }
 .credential-card__top span { color: #b7c4c7; font-family: "DM Serif Display", Georgia, serif; font-size: 24px; }
 .credential-card .card-label { margin: 22px 0 7px; }
-.credential-card h3 { margin-bottom: 99px; font-size: 23px; }
+.credential-card h3 { margin-bottom: 12px; font-size: 23px; }
 .credential-card > p:not(.card-label) { color: #667983; font-size: 11px; line-height: 1.65; }
 .credential-card button { display: inline-flex; align-items: center; gap: 6px; width: max-content; margin-top: auto; padding: 0; color: #0b6679; background: transparent; border-bottom: 1px solid #0b6679; font-size: 10px; font-weight: 800; cursor: pointer; }
 
