@@ -122,7 +122,7 @@ const credentials = [
     name: "From Insights to Influence",
     provider: "Grameenphone Academy",
     year: "Verified · Aug 2026",
-    text: "Certificate of Excellence for successfully completing \"From Insights to Influence\" at Grameenphone Academy.",
+    text: "I'm proud to share that I have successfully completed \"From Insights to Influence\" and earned a Certificate of Excellence from Grameenphone Academy. 🏆📊\n\nThis program helped me sharpen how I translate raw data and analysis into clear, compelling insights that can actually influence real business decisions — a skill I'm excited to keep building on.",
     image: "./insight to influence.jpg",
     verified: true,
   },
