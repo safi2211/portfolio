@@ -119,6 +119,14 @@ const credentials = [
     verified: true,
   },
   {
+    name: "From Insights to Influence",
+    provider: "Grameenphone Academy",
+    year: "Verified · Aug 2026",
+    text: "Certificate of Excellence for successfully completing \"From Insights to Influence\" at Grameenphone Academy.",
+    image: "./insight to influence.jpg",
+    verified: true,
+  },
+  {
     name: "SQL & data querying practice",
     provider: "Current learning focus",
     year: "In progress",
