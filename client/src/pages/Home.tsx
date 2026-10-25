@@ -154,6 +154,15 @@ const credentials = [
     verified: true,
   },
   {
+    name: "Excel Skills for Business: Essentials",
+    provider: "Macquarie University · Coursera",
+    year: "Verified · Oct 2026",
+    date: "2026-10-25",
+    text: "Delighted to share that I’ve completed the Excel Skills for Business: Essentials course from Macquarie University via Coursera! 🎓",
+    image: "./Coursera LIEWI77BIEYS_page-0001.jpg",
+    verified: true,
+  },
+  {
     name: "SQL & data querying practice",
     provider: "Current learning focus",
     year: "In progress",
