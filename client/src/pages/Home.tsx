@@ -71,7 +71,7 @@ const skillGroups = [
 
 const projects = [
   {
-    number: "01",
+    date: "2026-08-01",
     title: "Sales Performance Analysis Dashboard",
     description:
       "My First Power BI Dashboard 📊\n\nExcited to share my first Power BI dashboard as I begin my journey into Data Analytics and Business Intelligence.\n\nIn this project, I transformed sales data into interactive visualizations and explored performance across countries, regions, segments, and products.",
@@ -83,7 +83,7 @@ const projects = [
     liveUrl: null,
   },
   {
-    number: "02",
+    date: "2026-07-01",
     title: "Customer & Sales Data Analysis",
     description:
       "A developing analysis practice focused on customer behavior, sales performance, product performance, and broader business trends.",
@@ -95,7 +95,7 @@ const projects = [
     liveUrl: null,
   },
   {
-    number: "03",
+    date: "2026-06-01",
     title: "Business Data Analysis Project",
     description:
       "A developing Python workflow involving data cleaning, exploratory data analysis, visualization, and insight extraction.",
@@ -108,11 +108,37 @@ const projects = [
   },
 ];
 
+// Newest project first (by date). Project numbers (01, 02, ...) are assigned automatically.
+const sortedProjects = [...projects]
+  .sort((a, b) => b.date.localeCompare(a.date))
+  .map((project, index) => ({ ...project, number: String(index + 1).padStart(2, "0") }));
+
+const experiences = [
+  {
+    date: "2019-03",
+    period: "MARCH 2019 – JUNE 2020",
+    location: "HAZIPARA, CHATTAGRAM",
+    company: "M.H ENTERPRISE (A DISTRIBUTOR OF PEPSICO LTD)",
+    role: "Stock In-charge",
+    summary: "Managed inventory operations and product distribution tracking for a major beverage distributor.",
+    points: [
+      "Maintained accurate inventory levels and stock records.",
+      "Managed order processing and fulfillment lists efficiently.",
+      "Handled discount claim reconciliation and operational reporting.",
+    ],
+    skills: ["Excel", "PowerPoint", "Basic Accounting"],
+  },
+];
+
+// Newest experience first (by start date)
+const sortedExperiences = [...experiences].sort((a, b) => b.date.localeCompare(a.date));
+
 const credentials = [
   {
     name: "Power BI dashboard practice",
     provider: "Mind Luster",
     year: "Verified · Aug 2026",
+    date: "2026-08-25",
     text:
       "I'm happy to share that I have successfully completed the \"What Is Power BI\" course from Mind Luster. 📊🎓\n\n⏱️ I spent 13 hours completing this course and building my foundational knowledge of Power BI, data analysis, and data visualization.",
     image: "./power-Bi.jpg",
@@ -122,6 +148,7 @@ const credentials = [
     name: "From Insights to Influence",
     provider: "Grameenphone Academy",
     year: "Verified · Aug 2026",
+    date: "2026-08-31",
     text: "I'm proud to share that I have successfully completed \"From Insights to Influence\" and earned a Certificate of Excellence from Grameenphone Academy. 🏆📊\n\nThis program helped me sharpen how I translate raw data and analysis into clear, compelling insights that can actually influence real business decisions — a skill I'm excited to keep building on.",
     image: "./insight to influence.jpg",
     verified: true,
@@ -130,6 +157,7 @@ const credentials = [
     name: "SQL & data querying practice",
     provider: "Current learning focus",
     year: "In progress",
+    date: "",
     text: "Developing a reliable approach to retrieving, organizing, and interpreting structured data.",
     image: null,
     verified: false,
@@ -138,11 +166,18 @@ const credentials = [
     name: "Python analysis practice",
     provider: "Current learning focus",
     year: "In progress",
+    date: "",
     text: "Strengthening the workflow from data preparation through exploratory analysis and visual explanation.",
     image: null,
     verified: false,
   },
 ] as const;
+
+// Newest certificate first (by date), then in-progress cards in their original order
+const sortedCredentials = [...credentials].sort((a, b) => {
+  if (a.verified !== b.verified) return a.verified ? -1 : 1;
+  return String(b.date).localeCompare(String(a.date));
+});
 
 const toolbox = [
   ["Power BI", BarChart3],
@@ -288,7 +323,7 @@ export default function Home() {
           <div className="report-layout">
             <SectionHeading number="03" eyebrow="Selected work" title="Featured projects" text="Real-world data analytics case studies." />
             <div className="projects-list">
-              {projects.map((project) => (
+              {sortedProjects.map((project) => (
                 <article className="project-card" key={project.number}>
                   <div className="project-card__image" style={{ display: "flex", alignItems: "center", justifyContent: "center" }}>
                     <img src={project.image} alt={project.title} style={{ objectFit: "contain", width: "100%", height: "100%" }} />
@@ -349,26 +384,24 @@ export default function Home() {
             <SectionHeading number="05" eyebrow="Applied learning" title="Experience" text="Practical operational work." />
             <div className="experience-track">
               <div className="experience-track__line" />
-              <article className="experience-card experience-card--current">
-                <div className="experience-card__marker"><BriefcaseBusiness size={17} /></div>
-                <div className="experience-card__top">
-                  <span>MARCH 2019 – JUNE 2020</span>
-                  <span>HAZIPARA, CHATTAGRAM</span>
-                </div>
-                <p className="card-label">M.H ENTERPRISE (A DISTRIBUTOR OF PEPSICO LTD)</p>
-                <h3>Stock In-charge</h3>
-                <p>Managed inventory operations and product distribution tracking for a major beverage distributor.</p>
-                <ul>
-                  <li>Maintained accurate inventory levels and stock records.</li>
-                  <li>Managed order processing and fulfillment lists efficiently.</li>
-                  <li>Handled discount claim reconciliation and operational reporting.</li>
-                </ul>
-                <div className="experience-card__skills">
-                  <span>Excel</span>
-                  <span>PowerPoint</span>
-                  <span>Basic Accounting</span>
-                </div>
-              </article>
+              {sortedExperiences.map((exp) => (
+                <article className="experience-card experience-card--current" key={`${exp.company}-${exp.date}`}>
+                  <div className="experience-card__marker"><BriefcaseBusiness size={17} /></div>
+                  <div className="experience-card__top">
+                    <span>{exp.period}</span>
+                    <span>{exp.location}</span>
+                  </div>
+                  <p className="card-label">{exp.company}</p>
+                  <h3>{exp.role}</h3>
+                  <p>{exp.summary}</p>
+                  <ul>
+                    {exp.points.map((point) => <li key={point}>{point}</li>)}
+                  </ul>
+                  <div className="experience-card__skills">
+                    {exp.skills.map((skill) => <span key={skill}>{skill}</span>)}
+                  </div>
+                </article>
+              ))}
 
               <article className="experience-template">
                 <div className="experience-card__marker"><Activity size={17} /></div>
@@ -403,7 +436,7 @@ export default function Home() {
           <div className="report-layout">
             <SectionHeading number="07" eyebrow="Record" title="Achievements" text="Certificates and milestones." />
             <div className="credentials-grid">
-              {credentials.map((credential, index) => (
+              {sortedCredentials.map((credential, index) => (
                 <article className="credential-card" key={`${credential.name}-${index}`}>
                   <div className="credential-card__top"><Award size={20} /><span>{String(index + 1).padStart(2, "0")}</span></div>
                   <p className="card-label">{credential.provider} · {credential.year}</p>
