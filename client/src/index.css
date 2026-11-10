@@ -204,7 +204,7 @@ h1, h2, h3, p { margin-top: 0; }.hero h1 { max-width: 610px; margin: 21px 0 16px
 .toolbox-section { padding: 80px 5vw; background: #e8f8f9; }
 .toolbox-section__inner { display: grid; grid-template-columns: .78fr 1.22fr; gap: 80px; align-items: center; max-width: 1400px; margin: 0 auto; }
 .toolbox-section h2 em, .contact-section h2 em { color: #0c8192; }
-.toolbox-grid { display: grid; grid-template-columns: repeat(4,1fr); gap: 1px; background: #c3e9ec; border: 1px solid #c3e9ec; }
+.toolbox-grid { display: grid; grid-template-columns: repeat(5,1fr); gap: 1px; background: #c3e9ec; border: 1px solid #c3e9ec; }
 .toolbox-item { min-height: 90px; display: grid; place-items: center; align-content: center; gap: 8px; background: #e8f8f9; color: #13546b; transition: color .16s ease, background .16s ease; }
 .toolbox-item:hover { background: #0c2b45; color: #69e7ef; }
 .toolbox-item span { font-size: 10px; font-weight: 800; }
