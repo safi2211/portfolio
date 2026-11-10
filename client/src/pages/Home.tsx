@@ -4,6 +4,7 @@ import {
   ArrowRight,
   Award,
   BarChart3,
+  Boxes,
   Braces,
   BriefcaseBusiness,
   CalendarDays,
@@ -24,6 +25,7 @@ import {
   Menu,
   Network,
   Presentation,
+  Sigma,
   Table2,
   X,
 } from "lucide-react";
@@ -55,7 +57,7 @@ const skillGroups = [
   {
     label: "Business Intelligence",
     icon: Presentation,
-    skills: ["Microsoft Power BI", "Power Query", "Dashboard Development", "KPI Analysis", "Interactive Reports"],
+    skills: ["Microsoft Power BI", "Power Query", "Dashboard Development", "KPI Analysis", "Interactive Reports", "ERP Systems (Odoo)"],
   },
   {
     label: "Programming & Database",
@@ -205,6 +207,8 @@ const toolbox = [
   ["Pandas", Table2],
   ["NumPy", Network],
   ["Matplotlib", LineChart],
+  ["DAX", Sigma],
+  ["Odoo ERP", Boxes],
   ["GitHub", Github],
 ] as const;
 
