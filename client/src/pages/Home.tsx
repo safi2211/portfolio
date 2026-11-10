@@ -163,6 +163,15 @@ const credentials = [
     verified: true,
   },
   {
+    name: "Practical Workshop on Odoo ERP Systems",
+    provider: "University of Dhaka · Dept. of MIS",
+    year: "Participation · Nov 2026",
+    date: "2026-11-10",
+    text: "Glad to share that I successfully participated in the Practical Workshop on Odoo ERP Systems, organized by the Department of Management Information Systems, University of Dhaka. 🎓💼\n\nThis hands-on session gave me practical exposure to how ERP systems connect and manage real business operations.",
+    image: "./MD Suffiullah_page-0001.jpg",
+    verified: true,
+  },
+  {
     name: "SQL & data querying practice",
     provider: "Current learning focus",
     year: "In progress",
